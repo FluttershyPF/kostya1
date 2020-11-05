@@ -1,37 +1,40 @@
 <?php
 
-class A
+use Nikitenko\NikitenkoException;
+class E extends D
 {
+
+    /**
+     * @param $a
+     * @param $b
+     * @param $c
+     * @return array
+     */
+    function solve($a, $b, $c)
+    {
+        if ($a == 0) {
+            return parent::line($b, $c);
+        }
+        $discr = $this->discr($a, $b, $c);
+        if ($discr < 0) {
+            throw new NikitenkoException("Ошибка: уравнение не имеет решений");
+        }
+        if ($discr == 0) {
+            $this->X = array(-$b / 2 / $c);
+            return $this->X;
+        }
+        $discr=sqrt($discr);
+        $this->X = array(
+            ((-$b + $discr) / (2 * $a)),
+            ((-$b - $discr) / (2 * $a))
+        );
+        return $this->X;
+    }
+
+    function discr($a, $b, $c)
+    {
+        return pow($b, 2) - 4 * $a * $c;
+    }
 }
 
-class B extends A
-{
-	public function __construct($b)
-	{
-		$this ->b = $b;
-
-	}
-	
-	protected $b;
-
-}
-
-class C extends B
-{
-	public function __construct($a, $b, $c, $d)
-	{
-		$this ->c = $c;
-		$this ->b = $b;
-		$this ->d = $d;
-		parent::__construct($a);
-	}
-	protected $b;
-	protected $c;
-	protected $d;
-}
-$a1 = new A();
-$a2 = new A();
-$a3 = new A();
-$b4 = new B($a1);
-$c5 = new C($a1, $a2, $a3, $b4);
-$c5 =
+?>
