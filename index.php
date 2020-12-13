@@ -19,7 +19,10 @@ error_reporting (-1);
 $b = new E();
 try
 {
+    $version = file_get_context("version");
+    MyLog::log("Версия программы ".$version);
     $values = array();
+    
     for ($i = 0; $i < 3; $i++)
     {
         echo "Введите " . ($i+1) . "й-аргумент:";
