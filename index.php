@@ -3,22 +3,16 @@
 
 use Nikitenko\MyLog;
 use Nikitenko\NikitenkoException;
+use Nikitenko\QuadEquation;
 
-require "core/EquationInterface.php";
-require "core/LogAbstract.php";
-require "core/LogInterface.php";
-require "Nikitenko/MyLog.php";
-require "Nikitenko/Equation.php";
-require "Nikitenko/QuadEquation.php";
-require "Nikitenko/NikitenkoException.php";
-
+require_once(__DIR__."/vendor/autoload.php");
 
 ini_set("display_errors", 1);
 error_reporting (-1);
 
-$b = new E();
 try
 {
+    $b =new E();
     $values = array();
     for ($i = 0; $i < 3; $i++)
     {
@@ -27,6 +21,7 @@ try
     }
 
     MyLog::Log("Введено уравнение" . $values[0] . "x^2+" . $values[1] . "x+" . $values[2]);
+
 
     $x = $b->solve($values[0], $values[1], $values[2]);
 
@@ -39,4 +34,3 @@ catch (Exception $e)
 }
 MyLog::write();
 
-?>

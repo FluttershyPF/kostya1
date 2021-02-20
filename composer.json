@@ -1,0 +1,25 @@
+{
+    "name": "fluttershypf/kostya1",
+    "type": "project",
+    "authors": [
+        {
+            "name": "FluttershyPF",
+            "email": "k.nikitenko2013@yandex.ru"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/rok9ru/trpo-core.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/FluttershyPF/kostyalib.git"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "rok9ru/trpo-core":"^2.0",
+        "fluttershypf/kostyalib":"^1.0"
+    }
+}
